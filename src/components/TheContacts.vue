@@ -1,6 +1,6 @@
 <template>
     <div :class="$style.container">
-        <MediaBox v-for="user in users" :user="user" :key="user.name"/>
+        <MediaBox background-color="white" v-for="user in users" :user="user" :key="user.name"/>
     </div>
 </template>
 
@@ -19,15 +19,15 @@ export default {
 
 <style lang="scss" module>
 .container {
-    display: block;
+    display: flex;
+    min-width: 16%;
     border-right: 1px solid rgba(lightgrey, .4);
-    width: 20%;
-    height: 100%;
 }
 
-@media only screen and  (min-width: 1300px) {
+@media only screen and (min-width: 50em) {
     .container {
-        display: none;
+        flex-direction: column;
+        border-bottom: 1px solid rgba(lightgrey, .4);
     }
 }
 </style>

@@ -35,14 +35,14 @@ export default {
 <style lang="scss" module>
 .container {
     align-self: flex-end;
-    padding: 2rem;
+    padding: 1.8rem;
     margin: 1rem;
     border-radius: 3px;
     background-color: lighten(lightgray, 13);
 }
 
 .incomingMessage {
-    background-color: rgb(48, 71, 236);
+    background-color: darken(#83d0f2, 50);
     color: white;
     align-self: flex-start;
 }

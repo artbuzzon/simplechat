@@ -21,4 +21,17 @@ html {
     color: #26292c;
     font-size: 62.5%;
 }
+
+body {
+    font-size: 1.3rem;
+}
+
+#app {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lighten(#f8f9fa, 10);
+}
+
 </style>

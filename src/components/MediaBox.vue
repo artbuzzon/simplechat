@@ -1,6 +1,6 @@
 <template>
-    <div :class="$style.container" @click="setUserId">
-        <div :class="$style.avatarContainer">
+    <div :class="$style.container" :style="{backgroundColor}" @click="setUserId">
+        <div :class="$style.avatarContainer" >
             <img @error="useDefaultAvatar" :src="user.avatarUrl">
         </div>
         <div :class="$style.user">
@@ -14,6 +14,10 @@ export default {
     props: {
         user: {
             type: Object,
+            required: true,
+        },
+        backgroundColor: {
+            type: String,
             required: true,
         },
     },
@@ -39,13 +43,23 @@ export default {
     border-bottom: 1px solid rgba(lightgrey, .5);
     display: flex;
     align-items: center;
-    background-color: white;
     cursor: pointer;
 
     .avatarContainer img {
+        margin: .8rem;
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+@media only screen and (min-width: 40em) {
+    .container {
+        flex-direction: row;
+    }
+
+    .avatarContainer img {
         margin: 1rem;
-        width: 3rem;
-        height: 3rem;
     }
 }
 </style>

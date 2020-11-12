@@ -1,10 +1,10 @@
 <template>
-    <div :class="$style.container">
-        <Message
-                v-for="message in chat"
-                :key="message.text + Math.random() * 1000"
-                :is-incoming-message="message.userId !== userId"
-                :message="message"/>
+    <div :class="$style.container" v-chat-scroll="{always: false, smooth: true}">
+                <Message
+                        v-for="message in chat"
+                        :key="message.date + message.text"
+                        :is-incoming-message="message.userId !== userId"
+                        :message="message"/>
     </div>
 </template>
 
@@ -32,7 +32,20 @@ export default {
 .container {
     display: flex;
     flex-direction: column;
-    overflow: auto;
-    height: 70%;
+    overflow-y: auto;
+    height: 100%;
+
+    &::-webkit-scrollbar{
+        width: .5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: lightgray;
+        border-radius: 6px;
+    }
 }
 </style>

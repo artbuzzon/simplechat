@@ -1,15 +1,24 @@
 <template>
     <div :class="$style.container">
-
         <form @submit.prevent="submit">
             <div>
-                <input :class="$style.formItem" type="text" placeholder="Имя" v-model="name" required/>
-            </div>
-            <div>
-                <input :class="$style.formItem" type="text" placeholder="Ссылка на аватар" v-model="avatarUrl"
+                <input :class="$style.formItem"
+                       type="text"
+                       placeholder="Имя"
+                       v-model="name"
                        required/>
             </div>
-            <button :class="$style.submitBtn" type="submit">Вход</button>
+            <div>
+                <input :class="$style.formItem"
+                       type="text"
+                       placeholder="Ссылка на аватар"
+                       v-model="avatarUrl"
+                       required/>
+            </div>
+            <button :class="$style.submitBtn"
+                    type="submit">
+                Вход
+            </button>
         </form>
     </div>
 </template>
@@ -24,11 +33,14 @@ export default {
         };
     },
     methods: {
+        generateUserId() {
+            return Math.floor(Math.random() * 10000).toString();
+        },
         submit() {
             this.$store.dispatch('registerUser', {
                 name: this.name,
                 avatarUrl: this.avatarUrl,
-                id: Math.floor(Math.random() * 10000),
+                id: this.generateUserId,
             }).then(() => {
                 this.$router.push('chat');
             });
@@ -39,12 +51,13 @@ export default {
 
 <style lang="scss" module>
 .container {
-    width: 100%;
-    padding: 4rem;
+    padding: 6rem 4rem;
     position: absolute;
+    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: white;
 }
 
 .formItem {
@@ -57,7 +70,7 @@ export default {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 12px;
     min-height: 32px;
-    padding: 0 8px;
+    padding: 0 1rem;
 }
 
 
@@ -65,23 +78,22 @@ export default {
     background-color: #1877f2;
     border: none;
     border-radius: 6px;
-    font-size: 1.5rem;
-    line-height: 38px;
-    padding: 0 1rem;
+    font-size: 1.4rem;
+    line-height: 32px;
     color: white;
-    min-width: 10rem;
+    min-width: 8rem;
 }
 
-@media only screen and (min-width: 460px) {
+@media only screen and (min-width: 30rem) {
     .container {
-        width: 50%;
+        width: 70%;
         box-shadow: 0 .5rem 1rem lightgray;
     }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 60rem) {
     .container {
-        width: 30%;
+        width: 25%;
         box-shadow: 0 .5rem 1rem lightgray;
     }
 }

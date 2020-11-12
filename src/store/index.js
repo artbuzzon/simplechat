@@ -12,11 +12,11 @@ export default new Vuex.Store({
 		],
 		chat: [
 			{
-				text: 'Привет!',
+				text: 'lorem	ipsum',
 				date: Date.now(),
 				userId: 'abc'
 			}, {
-				text: 'Как дела?',
+				text: 'dolor sit amet',
 				date: Date.now(),
 				userId: 'abc'
 			}
